@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-900: #1e3a8a;
+  --color-dark-bg: #0f172a;
+  --color-dark-card: #1e293b;
+  --color-dark-border: #334155;
+  --font-sans: 'Inter', sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-slate-50);
+    color: var(--color-slate-900);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  .dark body {
+    background-color: var(--color-dark-bg);
+    color: var(--color-slate-100);
+  }
+}
+
+@layer components {
+  .glass-panel {
+    background-color: rgb(255 255 255 / 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgb(255 255 255 / 0.2);
+    box-shadow: var(--shadow-xl);
+    border-radius: var(--radius-2xl);
+  }
+  .dark .glass-panel {
+    background-color: rgb(30 41 59 / 0.7); /* slate-800 with opacity */
+    border: 1px solid rgb(255 255 255 / 0.05);
+  }
+  .btn-primary {
+    background-color: var(--color-primary-600);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-xl);
+    transition-property: all;
+    transition-duration: 300ms;
+    font-weight: 500;
+    box-shadow: var(--shadow-md);
+  }
+  .btn-primary:hover {
+    background-color: var(--color-primary-500);
+    box-shadow: var(--shadow-lg);
+  }
+  .btn-primary:active {
+    transform: scale(0.95);
+  }
+}
